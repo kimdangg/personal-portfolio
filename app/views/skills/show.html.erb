@@ -1,8 +1,8 @@
 <h1><%= @skill.name %></h1>
 
   <div class= 'well'>
-    <p>Skill: <%= @skill.name %></p>
-    <p>Description: <%= @skill.description %></p>
+    <p><b>Skill:</b> <%= @skill.name %></p>
+    <p><b>Description:</b> <%= @skill.description %></p>
   </div>
 
 <h2>Projects</h2>
@@ -16,6 +16,8 @@
   <% else %>
     <p>There are no projects.</p>
   <% end %>
+
+  <br>
 
 <%= link_to 'Add a Project', new_skill_project_path(@skill) %> |
 <%= link_to 'Edit', edit_skill_path(@skill) %> |
