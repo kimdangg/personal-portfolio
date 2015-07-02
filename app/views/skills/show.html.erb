@@ -1,12 +1,12 @@
 <h1><%= @skill.name %></h1>
 
   <div class= 'well'>
-    <p><b>Skill:</b> <%= @skill.name %></p>
     <p><b>Description:</b> <%= @skill.description %></p>
   </div>
 
 <h2>Projects</h2>
 
+<div class="well">
   <% if @skill.projects.any? %>
     <ul>
       <% @skill.projects.each do |project| %>
@@ -17,6 +17,7 @@
     <p>There are no projects.</p>
   <% end %>
 
+</div>
   <br>
 
 <%= link_to 'Add a Project', new_skill_project_path(@skill) %> |
