@@ -1,14 +1,5 @@
 require 'rails_helper'
 
-def user_log_in(email)
-  test_user = FactoryGirl.create(:user, :email => email)
-  visit '/'
-  click_on 'login'
-  fill_in 'Email', :with => email
-  fill_in 'Password', :with => 'peasantspassword'
-  click_on 'session-login'
-end
-
 describe 'successfully creating a new user' do
   it 'displays a link to a login page on the index' do
     visit '/'
@@ -46,5 +37,12 @@ describe 'unsuccessfully creating a new user (user already exists)' do
     fill_in 'Password confirmation', :with => 'badpassword'
     click_on 'new-user'
     expect(page).to have_content 'There was a problem creating your account. Please try again.'
+  end
+end
+
+describe 'user trying to access admin features' do
+  it 'displays a warning message to the user trying to access admin pages' do
+    visit '/skills/new'
+    expect(page).to have_content "You are not authorized to perform this action."
   end
 end

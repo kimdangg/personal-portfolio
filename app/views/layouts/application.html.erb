@@ -28,6 +28,9 @@
           <li><%= link_to 'BLOG', posts_path %></li>
           <% if current_user %>
             <li><%= link_to 'LOGOUT', log_out_path, method: :delete, :id => 'logout' %></li>
+            <% if current_user.admin? %>
+              <li "navbar-right"><%= link_to current_user.username, user_path(current_user) %></li>
+            <% end %>
           <% else %>
             <li><%= link_to 'SIGN UP', new_user_path, :id => 'sign-up' %></li>
             <li><%= link_to 'LOGIN', log_in_path, :id => 'login' %></li>
