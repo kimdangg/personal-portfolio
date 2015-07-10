@@ -8,11 +8,11 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    authorize @post = Post.new
   end
 
   def create
-    @post = Post.new(post_params)
+    authorize @post = Post.new(post_params)
     if @post.save
       flash[:notice] = "Your entry has been successfully added."
       redirect_to posts_path
@@ -23,11 +23,12 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
+    authorize @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find(params[:id])
+    authorize @post = Post.find(params[:id])
+    authorize @post
     if @post.update(post_params)
       flash[:notice] = "Your entry has been updated."
       redirect_to post_path(@post)

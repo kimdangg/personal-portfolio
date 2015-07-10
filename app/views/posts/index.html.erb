@@ -1,6 +1,8 @@
 <h1 class="text-center">Blog Entries</h1>
 
-<p class="text-center"><%= link_to "NEW ENTRY", new_post_path %></p>
+<% if current_user && current_user.admin? %>
+  <p class="text-center"><%= link_to "NEW ENTRY", new_post_path %></p>
+<% end %>
 
 <% if @posts.any? %>
 

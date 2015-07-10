@@ -1,5 +1,9 @@
+<h1 class="text-center">Skills</h1>
+<% if current_user && current_user.admin? %>
+  <p class="text-center"><%= link_to "NEW SKILL", new_skill_path %></p>
+<% end %>
+
 <div class="well">
-  <h1>Skills</h1>
 
   <% if @skills.any? %>
     <ul>
