@@ -26,8 +26,12 @@
         <ul class="nav navbar-nav special-color">
           <li><%= link_to 'SKILLS', skills_path %></li>
           <li><%= link_to 'ADD A SKILL', new_skill_path %></li>
-          <li><%= link_to 'SIGN UP', new_user_path %></li>
-          <li><%= link_to 'LOGIN', log_in_path %></li>
+          <% if current_user %>
+            <li><%= link_to 'LOGOUT', log_out_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to 'SIGN UP', new_user_path %></li>
+            <li><%= link_to 'LOGIN', log_in_path %></li>
+          <% end %>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
