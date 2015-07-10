@@ -3,10 +3,10 @@ require 'rails_helper'
 def user_log_in(email)
   test_user = FactoryGirl.create(:user, :email => email)
   visit '/'
-  click_on 'LOGIN'
+  click_on 'login'
   fill_in 'Email', :with => email
   fill_in 'Password', :with => 'peasantspassword'
-  click_on 'login'
+  click_on 'session-login'
 end
 
 describe 'successfully creating a new user' do
