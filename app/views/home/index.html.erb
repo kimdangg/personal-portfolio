@@ -1,0 +1,29 @@
+<div class="col-sm-6">
+  <div class="well front-page">
+    <h1>About</h1>
+    <p>Hi! My name is Kim Dang and this is my personal web development portfolio. I hope you enjoy looking around.</p>
+  </div>
+
+  <div class="well front-page">
+    <h1>Contact</h1>
+    <p><b>Email:</b> kimdangg@gmail.com</p>
+    <p><b>Linkedin:</b> <%= link_to "linkedin.com/in/kimdangg", "http://linkedin.com/in/kimdangg" %></p>
+    <p><b>Github:</b> <%= link_to "github.com/kimdangg", "http://github.com/kimdangg" %></p>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="well">
+    <h1>Skills</h1>
+
+    <% if @skills.any? %>
+      <ul>
+        <% @skills.each do |skill| %>
+          <li><%= link_to skill.name, skill_path(skill) %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>There are no skills.</p>
+    <% end %>
+  </div>
+</div>

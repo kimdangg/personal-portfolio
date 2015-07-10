@@ -19,8 +19,12 @@
  body {
    font-family: 'Quicksand', sans-serif;
    background-image: url("/images/background.jpg");
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
    background-size: cover;
-   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-position: 0px 10px;
  }
 
  .navbar-brand {
@@ -37,4 +41,8 @@
 
  .well-form {
    width: 450px;
+ }
+
+ textarea {
+   resize: none;
  }
