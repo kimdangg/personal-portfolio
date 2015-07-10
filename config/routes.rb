@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   resources :users
 
+  resources :posts
+
   resources :skills do
     resources :projects, :except => [:index]
   end

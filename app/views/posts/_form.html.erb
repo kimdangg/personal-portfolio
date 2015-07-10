@@ -1,0 +1,8 @@
+<div class="well">
+  <%= render "layouts/errors", :object => @post %>
+  <%= bootstrap_form_for [@post] do |f| %>
+      <%= f.text_field :title %><br />
+      <%= f.text_area :body, :rows => "8" %><br />
+    <%= f.submit %>
+  <% end %>
+</div>

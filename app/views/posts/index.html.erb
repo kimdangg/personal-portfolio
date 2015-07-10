@@ -1,0 +1,19 @@
+<h1 class="text-center">Blog Entries</h1>
+
+<% if @posts.any? %>
+
+  <ul class='unstyled-list'>
+    <% @posts.each do |post| %>
+      <li>
+        <div class='well'>
+          <p><%= post.created_at.to_formatted_s(:long) %></p>
+          <p><%= link_to post.title, post_path(post) %></p>
+          <p><%= post.body %></p>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+
+<% else %>
+  <p>There are no blog entries.</p>
+<% end %>

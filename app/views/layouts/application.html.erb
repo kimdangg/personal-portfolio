@@ -25,6 +25,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav special-color">
           <li><%= link_to 'SKILLS', skills_path %></li>
+          <li><%= link_to 'BLOG', posts_path %></li>
           <li><%= link_to 'ADD A SKILL', new_skill_path %></li>
           <% if current_user %>
             <li><%= link_to 'LOGOUT', log_out_path, method: :delete, :id => 'logout' %></li>
