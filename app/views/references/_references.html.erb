@@ -1,4 +1,4 @@
-<div class="well">
+<div class="well" id="ref_show">
 <h1>References:</h1>
   <% if @references.any? %>
     <ul class="unstyled-list" id="references">
@@ -17,5 +17,5 @@
   <% end %>
 </div>
 
-<div id="newref"></div>
+<%= link_to "Close", root_path, remote: true, id: "close_references_link", :class => "btn btn-default" %>
 
