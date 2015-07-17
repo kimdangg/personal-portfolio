@@ -1,0 +1,11 @@
+<div class="panel panel-default">
+  <div class="panel-heading text-center">Add a Comment</div>
+  <div class="panel-body">
+    <%= form_for [@post, Comment.new], remote: true do |f| %>
+      <div class="form-group">
+        <%= f.text_area :body, hide_label: true, :class => "form-control", :rows => "3", :id => 'Body' %>
+      </div>
+      <%= f.submit "submit", :class => "center"%>
+    <% end %>
+  </div>
+</div>

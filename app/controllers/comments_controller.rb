@@ -1,4 +1,8 @@
 class CommentsController < ApplicationController
+  def new
+    @post = Post.find(params[:post_id])
+  end
+
   def create
     @post = Post.find(params[:post_id])
     @user = current_user
@@ -9,7 +13,10 @@ class CommentsController < ApplicationController
     else
       flash[:alert] = "There was a problem adding your comment. Please try again."
     end
-    redirect_to post_path(@post)
+    respond_to do |format|
+      format.html { redirect_to post_path(@post) }
+      format.js
+    end
   end
 
   private
