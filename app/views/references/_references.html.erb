@@ -1,0 +1,21 @@
+<div class="well">
+<h1>References:</h1>
+  <% if @references.any? %>
+    <ul class="unstyled-list" id="references">
+      <% @references.each do |reference| %>
+        <%= render (reference) %>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>There are no references.</p>
+  <% end %>
+  <hr>
+  <% if current_user %>
+    <%= render 'form' %>
+  <% else %>
+    <p><%= link_to "Sign in", log_in_path, :id => 'login' %> to add a reference.</p>
+  <% end %>
+</div>
+
+<div id="newref"></div>
+

@@ -26,6 +26,8 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'launchy'
   gem 'pry'
+  gem 'poltergeist'
+  gem 'database_cleaner'
 end
 
 group :test do

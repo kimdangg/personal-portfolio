@@ -17,6 +17,7 @@ class SkillsController < ApplicationController
       flash[:notice] = "Skill successfully added!"
       redirect_to skills_path
     else
+      flash[:alert] = "There was a problem adding your skill. Please try again."
       render :new
     end
   end
@@ -31,6 +32,7 @@ class SkillsController < ApplicationController
       flash[:notice] = "Skill successfully updated!"
       redirect_to skill_path(@skill)
     else
+      flash[:alert] = "There was a problem updating your skill. Please try again."
       render :edit
     end
   end
