@@ -7,35 +7,23 @@
 <% if @post.comments.any? %>
   <h3>Comments:</h3>
   <div class="well">
-    <ul class="unstyled-list">
+    <ul class="unstyled-list" id="comments">
       <% @post.comments.each do |comment| %>
-        <li>
-          <p class="comments"><%= comment.body %></p>
-          <p class="muted">Posted by: <%= link_to User.find(comment.user_id).username, user_path(User.find(comment.user_id)) %> on <%= comment.created_at.to_formatted_s(:long) %></p>
-        </li>
-        <hr>
+        <%= render (comment) %>
       <% end %>
     </ul>
   </div>
 <% end %>
 
 <% if current_user %>
-  <div class="panel panel-default">
-    <div class="panel-heading text-center">Add a Comment</div>
-    <div class="panel-body">
-      <%= form_for [@post, Comment.new] do |f| %>
-        <div class="form-group">
-          <%= f.text_area :body, hide_label: true, :class => "form-control", :rows => "3", :id => 'Body' %>
-        </div>
-        <%= f.submit "submit", :class => "center"%>
-      <% end %>
-    </div>
-  </div>
+  <%= render 'comments/form' %>
+  <% if current_user.admin? %>
+    <%= link_to 'Edit', edit_post_path(@post) %> |
+    <%= link_to 'Delete', post_path(@post), data: { confirm: "Are you sure?", method: "delete"} %>
+    <br><br>
+  <% end %>
 <% else %>
   <p><%= link_to "Sign in", log_in_path, :id => 'login' %> to add a comment</p>
 <% end %>
 
-<% if current_user && current_user.admin? %>
-  <%= link_to 'Edit', edit_post_path(@post) %> |
-  <%= link_to 'Delete', post_path(@post), data: { confirm: "Are you sure?", method: "delete"} %>
-<% end %>
+
