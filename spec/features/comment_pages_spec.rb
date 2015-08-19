@@ -10,7 +10,7 @@ def user_log_in
 end
 
 describe "the add a new comment to the blog" do
-  it "adds a new post" do
+  it "adds a new post", js: true do
     test_post = FactoryGirl.create(:post)
     user_log_in
     visit '/'
@@ -18,6 +18,6 @@ describe "the add a new comment to the blog" do
     click_on test_post.title
     fill_in 'Body', :with => 'This is the first comment.'
     click_on 'submit'
-    expect(page).to have_content "Your comment has been added!"
+    expect(page).to have_content "This is the first comment."
   end
 end

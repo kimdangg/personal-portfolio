@@ -5,7 +5,7 @@
 </div>
 
 <% if @post.comments.any? %>
-  <h3>Comments:</h3>
+<h3>Comments:</h3>
   <div class="well">
     <ul class="unstyled-list" id="comments">
       <% @post.comments.each do |comment| %>
@@ -25,5 +25,3 @@
 <% else %>
   <p><%= link_to "Sign in", log_in_path, :id => 'login' %> to add a comment</p>
 <% end %>
-
-

@@ -12,14 +12,14 @@ Password: admin
 
 ### Setup
 clone the project into your desktop and go to the project folder in the terminal.
+run postgres with the command
+```
+$ postgres
+```
 create the tables with:
 ```
 $ rake db:create
 $ rake db:migrate
-```
-run postgres with the command
-```
-$ postgres
 ```
 then run the rails server with:
 ```
