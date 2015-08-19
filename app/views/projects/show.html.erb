@@ -2,7 +2,7 @@
 
 <div class="well">
   <p><b>Description:</b> <%= @project.description %></p>
-  <p><b>Link:</b> <%= link_to @project.link, "http://#{@project.link}" %></p>
+  <a href="http://<%= @project.link %>"><img alt="preview_image" src="<%= @project.preview_image%>"></a>
 </div>
 
 <% if current_user && current_user.admin? %>
