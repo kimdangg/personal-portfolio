@@ -10,7 +10,7 @@
     <% @posts.each do |post| %>
       <li>
         <div class='well'>
-          <p><%= post.created_at.to_formatted_s(:long) %></p>
+          <p><%= post.created_at.strftime("%B %d, %Y") %></p>
           <p><%= link_to post.title, post_path(post) %></p>
           <p><%= post.body %></p>
         </div>

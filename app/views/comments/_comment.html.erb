@@ -1,8 +1,5 @@
-  <li>
-    <p class="comments"><%= comment.body %></p>
-    <p class="muted">Posted by: <%= link_to User.find(comment.user_id).username, user_path(User.find(comment.user_id)) %> on <%= comment.created_at.to_formatted_s(:long) %></p>
-  </li>
-  <hr>
-
-
- 
+<li>
+  <p class="comments"><%= comment.body %></p>
+  <p class="muted">Posted by: <%= link_to User.find(comment.user_id).username, user_path(User.find(comment.user_id)) %> on <%= comment.created_at.to_formatted_s(:long) %></p>
+</li>
+<hr>

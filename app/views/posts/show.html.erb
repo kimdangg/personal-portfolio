@@ -16,10 +16,11 @@
 <% end %>
 
 <% if current_user %>
-  <%= link_to "Leave a comment", new_post_comment_path(@post), id: "new_comment_link", remote: true %><br />
+  <%= render 'comments/form' %>
   <% if current_user.admin? %>
     <%= link_to 'Edit', edit_post_path(@post) %> |
     <%= link_to 'Delete', post_path(@post), data: { confirm: "Are you sure?", method: "delete"} %>
+    <br><br>
   <% end %>
 <% else %>
   <p><%= link_to "Sign in", log_in_path, :id => 'login' %> to add a comment</p>
